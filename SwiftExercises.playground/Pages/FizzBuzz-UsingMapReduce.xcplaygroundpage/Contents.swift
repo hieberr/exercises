@@ -1,7 +1,8 @@
 //: [Previous](@previous)
 
 import Foundation
-/* # Objective
+/* # FizzBuzz
+ ## Objective
  My goal here is to implement FizzBuzz using as few statements as possible.
 */
 

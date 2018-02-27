@@ -2,8 +2,10 @@
 
 import Foundation
 
-/* # Objective
- Implement the factory pattern in Swift. Rather than a simple factory which returns classes which have the same signatures I wanted to implement an example where the created types take different initialization data which the factory passes to them.  I have encountered this problem numerous times before. One case that I can remember involved creating MIDI messages which are used in music software to communicate note on/off messages as well as control changes.  This example is a simplified version of the problem and does not match the MIDI specification.
+/*
+ # Abstract Factory
+ ## Objective
+ Implement the abstract factory pattern in Swift. Rather than a simple factory which returns classes which have the same signatures I wanted to implement an example where the created types take different initialization data which the factory passes to them.  I have encountered this problem numerous times before. One case that I can remember involved creating MIDI messages which are used in music software to communicate note on/off messages as well as control changes.  This example is a simplified version of the problem and does not match the MIDI specification.
  
  This example defines two types of Midi message: NoteMessage which contains a note value, and ControlMessage which contains a control number. Both types of midi message have data, and channel values.
  

@@ -1,5 +1,6 @@
 //: [Previous](@previous)
-/* # Objective
+/* # Prototype
+ ## Objective
  To create an example of the Prototype Pattern
  
  The prototype Design pattern should be used when you need to create new objects that are cheaper to clone, than to create via new() and then setting its member values.
@@ -107,6 +108,7 @@ class EndOfGameViewController {
     }
 }
 
+// ## Usage:
 var basketballGame: BasketballGame = BasketballGame()
 basketballGame.setupScore(teamA: 110, teamB: 90)
 
@@ -121,5 +123,9 @@ var footballGame: FootballGame = FootballGame()
 footballGame.setupScore(teamA: 21, teamB: 28)
 viewController = EndOfGameViewController(gameToDisplay: footballGame)
 
+/* ## Output
+ Basketball - FinalScore: 110, 90
+ Football - FinalScore: 21, 28
+*/
 
 //: [Next](@next)

@@ -1,6 +1,7 @@
 //: [Previous](@previous)
 
-/* # Objective
+/* # Singleton
+ ## Objective
 Implement a threadsafe Singleton in Swift. It turns out this is easy since static members are initialized atomically in Swift.
 */
 final class Singleton {
@@ -15,10 +16,10 @@ final class Singleton {
     }
 }
 
-// Usage:
+// ## Usage:
 Singleton.instance.doSomething()
 
-// Output:
+// ## Output:
 // Doing something...
 
 //: [Next](@next)
