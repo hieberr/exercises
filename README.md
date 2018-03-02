@@ -4,6 +4,10 @@ I try to do daily, or nearly daily programming exercises and demos to improve my
 ## Exercises
 [DesignPattern-AbstractFactory](https://github.com/hieberr/exercises/blob/master/SwiftExercises.playground/Pages/DesignPatterns-AbstractFactory.xcplaygroundpage/Contents.swift)
 
+[DesignPattern-FactoryMethod](https://github.com/hieberr/exercises/blob/master/SwiftExercises.playground/Pages/DesignPatterns-FactoryMethod.xcplaygroundpage/Contents.swift)
+
+[DesignPattern-SimpleFactory](https://github.com/hieberr/exercises/blob/master/SwiftExercises.playground/Pages/DesignPatterns-SimpleFactory.xcplaygroundpage/Contents.swift)
+
 [DesignPattern-Prototype](https://github.com/hieberr/exercises/blob/master/SwiftExercises.playground/Pages/DesignPatterns-Prototype.xcplaygroundpage/Contents.swift)
 
 [DesignPattern-Singleton](https://github.com/hieberr/exercises/blob/master/SwiftExercises.playground/Pages/DesignPatterns-Singleton.xcplaygroundpage/Contents.swift)
