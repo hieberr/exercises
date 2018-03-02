@@ -5,7 +5,7 @@ import Foundation
 /*
  # Factory Method
  ## Objective
- Implement the factory method pattern in Swift.  I wanted to implement an example where the created types take different initialization data which the factory passes to them.  I have encountered this problem numerous times before. One case that I can remember involved creating MIDI messages which are used in music software to communicate note on/off messages as well as control changes (in addition to other types of MIDI message).  This example is a simplified version of the problem and does not match the MIDI specification.
+  I wanted to implement an example where the created types take different initialization data which the factory passes to them.  I have encountered this problem numerous times before. One case that I can remember involved creating MIDI messages which are used in music software to communicate note on/off messages as well as control changes (in addition to other types of MIDI message).  This example is a simplified version of the problem and does not match the MIDI specification.
  
  This example defines two types of Midi message: NoteMessage which contains a note value, and ControlMessage which contains a control number. Both types of midi message have data, and channel values.
  
@@ -18,6 +18,9 @@ import Foundation
  - Use the factory method if the business requirements are more than just product creation.
  - If you need to abstract the factory itself as well as product creation.
  - If you want to control product creation steps or configuration, and the steps are customized depending on the factory.
+
+ #### When not to use this pattern:
+ - If you can, use a static/simple factory. For example, if you find yourself only needing ONE concrete factory, you don't need the added complexity of the abstract factory.
  */
 
 // *************** The Messages  ***************
@@ -110,20 +113,16 @@ class ControlFactory: AbstractMidiMessageFactory {
 // Create a messageFactory variable and assign a RandomNoteFactory to it.
 var messageFactory: AbstractMidiMessageFactory = RandomNoteFactory(channel: 0)
 var message: AbstractMidiMessage = messageFactory.makeMessage(data: 5)
-// Upcast so we can get NoteMessage specific members
-let noteMessage: NoteMessage = message as! NoteMessage
-print("Type: \(message.getType()) Channel: \(message.getChannel()) Data: \(message.getData()) NoteValue: \(noteMessage.getNote())");
+print("Type: \(message.getType()) Channel: \(message.getChannel()) Data: \(message.getData())");
 
 // Switch the message factory to a ControlFactory
 messageFactory = ControlFactory(channel: 1, controlValue: 55)
 message = messageFactory.makeMessage(data: 10)
-// upcast so we can access ControlMessage specific members.
-let controlMessage: ControlMessage = message as! ControlMessage
-print("Type: \(message.getType()) Channel: \(message.getChannel()) Data: \(message.getData()) ControlValue: \(controlMessage.getControlValue())");
+print("Type: \(message.getType()) Channel: \(message.getChannel()) Data: \(message.getData())");
 
-// # Output:
-// Type: NoteMessage Channel: 0 Data: 5 NoteValue: 31
-// Type: ControlMessage Channel: 1 Data: 10 ControlValue: 55
-
+/* ## Output:
+Type: NoteMessage Channel: 0 Data: 5
+Type: ControlMessage Channel: 1 Data: 10
+*/
 
 //: [Next](@next)

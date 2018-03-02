@@ -52,7 +52,7 @@ print("Instance count: \(Widget.instanceCount)")
 
 print("\n\n**** SimpleFactory example ****")
 //********** Simple Factory ***********
-// In most cases you can probably use a static factory instead. It's simpler since you don't need to instantiate the factory itself.
+// In most cases you can probably use a static factory instead. It's simpler since you don't need to instantiate the factory itself. However, you might need to instantiate the factory if there is some database/file connection that needs to be instantiated.  The factory can hold on to this.
 enum VehicleType {
     case sedan, suv, truck
 }
