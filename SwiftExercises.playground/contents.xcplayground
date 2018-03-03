@@ -7,5 +7,6 @@
         <page name='DesignPatterns-Prototype'/>
         <page name='DesignPatterns-Singleton'/>
         <page name='FizzBuzz-UsingMapReduce'/>
+        <page name='RetainCycles'/>
     </pages>
 </playground>

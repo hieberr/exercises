@@ -8,4 +8,6 @@ I try to do daily, or nearly daily programming exercises and demos to improve my
 
 [DesignPattern-Singleton](https://github.com/hieberr/exercises/blob/master/SwiftExercises.playground/Pages/DesignPatterns-Singleton.xcplaygroundpage/Contents.swift)
 
+[RetainCycles](https://github.com/hieberr/exercises/blob/master/SwiftExercises.playground/Pages/RetainCycles.xcplaygroundpage/Contents.swift)
+
 [FizzBuzz](https://github.com/hieberr/exercises/blob/master/SwiftExercises.playground/Pages/FizzBuzz-UsingMapReduce.xcplaygroundpage/Contents.swift)
