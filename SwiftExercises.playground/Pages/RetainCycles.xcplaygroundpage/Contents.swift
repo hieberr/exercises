@@ -151,37 +151,67 @@ krakenWithWeakSelf = nil
  deinit: KrakenWithWeakSelf
  
 */
-/*
-protocol GodzillaListener {
-    func onAteSomebody()
-}
+print("\n")
 
-class SomeListener: GodzillaListener {
-    public func onAteSomebody() {
-        print("Godzilla ate somebody")
-    }
-}
+/* Delegate example
+ GodzillaWithCycle has a retain cycle in the onRoar() delegate assigned in the init.
+ */
  
-class GodzillaWithCycle : GodzillaListener {
+class GodzillaWithCycle {
     private var maxAge: Int = 33
+    private var name: String
     
-    public var listener: GodzillaListener? = {
-        
-    }
+    var onRoar: (() -> Void)?
     
-    init() {
-        print("init: GodzillaWithCycle")
-        //listener = self
+    init(_ name: String) {
+        self.name = name
+        print("init: GodzillaWithCycle \(self.name)")
+        onRoar = {
+            print("\(self.name): Roaar!!")
+        }
     }
     deinit {
-        print("deinit: GodzillaWithCycle")
+        print("deinit: GodzillaWithCycle \(self.name)")
     }
-   /* public func onAteSomebody() {
-        print("Godzilla ate somebody")
-    }*/
 }
 
-var godzilla: GodzillaWithCycle? = GodzillaWithCycle()
-godzilla = nil
-*/
+var godzillaWithCycle: GodzillaWithCycle? = GodzillaWithCycle("BobzillaWithCycle")
+godzillaWithCycle = nil
+/* #### Output:
+Note that the deinit doesn't get called due to the retain cycle:
+init: GodzillaWithCycle BobzillaWithCycle
+ */
+
+
+print("\n")
+/* This can be fixed by either having the captured self be weak or unowned. In this case the captured self will never outlive the class itself so we can use unowned instead of weak.
+ */
+
+class GodzillaWithUnowned {
+    private var maxAge: Int = 33
+    private var name: String
+    
+    var onRoar: (() -> Void)?
+    
+    init(_ name: String) {
+        self.name = name
+        print("init: GodzillaWithUnowned \(self.name)")
+        onRoar = {[unowned self] in
+            print("\(self.name): Roaar!!")
+        }
+    }
+    deinit {
+        print("deinit: GodzillaWithUnowned \(self.name)")
+    }
+}
+
+var godzillaWithUnowned: GodzillaWithUnowned? = GodzillaWithUnowned("BobzillaWithUnowned")
+godzillaWithUnowned = nil
+
+/* ####Output:
+ init: GodzillaWithUnowned BobzillaWithUnowned
+ deinit: GodzillaWithUnowned BobzillaWithUnowned
+ */
+
+
 //: [Next](@next)
