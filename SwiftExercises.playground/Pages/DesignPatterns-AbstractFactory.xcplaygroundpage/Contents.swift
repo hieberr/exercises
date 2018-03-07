@@ -26,7 +26,11 @@ import Foundation
  #### Resources
     - good information on the different factory patterns: http://coding-geek.com/design-pattern-factory-patterns/
  */
-/* The Buttons */
+
+// ------------------------------------
+// This example defines a layout factory for user interface elements. The example includes two factories that build UiElements that look/behave differently (in theory).  
+
+/* The UiElements */
 public protocol UixButton {
     func display()
 }
