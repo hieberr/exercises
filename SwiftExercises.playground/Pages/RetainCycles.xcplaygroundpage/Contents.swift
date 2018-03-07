@@ -1,16 +1,15 @@
 //: [Previous](@previous)
 
 import Foundation
-/* # Retain Cycles in swift
+/*:
+ # Retain Cycles in swift
  
- ## Objective:
+ #### Objective:
  Explore examples of retain cycles in swift and how to fix them.
  
- ### Definition:
  
 */
-
-//#### Interclass retain cycle
+//: ## Example: Interclass retain cycle
 
 class PersonRetainCycle {
     public var friends: Array<PersonRetainCycle> = []
@@ -35,16 +34,16 @@ aliceWithCycle?.friends.append(bobWithCycle!)
 bobWithCycle = nil
 aliceWithCycle = nil
 print("\n")
-/* #### Output:
- Notice that the deinit never gets called
+//: #### Output:
+/* Notice that the deinit never gets called
  
  init: Bob
  init: Alice
  
+ //: #### The Fix:
  We can fix/avoid this in two ways. The first way is to remember to clear out the friends array when we are destroying a person.
  bob.friends.RemoveAll()
  bob = nil
- 
  
  We can also wrap the person objects held in the array with wrapper class/struct that holds a weak reference to a person.
  */
@@ -81,8 +80,8 @@ bob = nil
 alice = nil
 print("\n")
 
-/* #### Output:
- Notice that now the deinits get called
+//: #### Output:
+/* Notice that now the deinits get called
  
  init: Bob
  init: Alice
@@ -91,7 +90,7 @@ print("\n")
  */
 
 
-//#### Closure retain cycle
+//: ## Example: Closure retain cycle
 // KrakenRetainCycle captures a strong reference to self in the notificationObserver closure.  de-init will never get called because this captured reference will always keep the retain count for the parent object at least 1.
 class KrakenRetainCycle {
     var notificationObserver: NSObjectProtocol? = nil
@@ -116,11 +115,11 @@ var krakenWithCycle: KrakenRetainCycle? = KrakenRetainCycle()
 krakenWithCycle = nil
 print("\n")
 
-/* #### Output:
- Notice that the deinit doesn't get called
+//: #### Output:
+/* Notice that the deinit doesn't get called
  init: Kraken
  
- 
+ //: #### The Fix:
  adding [weak self] to the closure arguments means the closure now keeps a weak reference, which doesn't increase the retain count on self.
  */
 class KrakenWithWeakSelf {
@@ -144,7 +143,8 @@ class KrakenWithWeakSelf {
 var krakenWithWeakSelf: KrakenWithWeakSelf? = KrakenWithWeakSelf()
 krakenWithWeakSelf = nil
 
-/* #### Output:
+/*:
+ #### Output:
  Now the deinit is called
 
  init: KrakenWithWeakSelf
@@ -153,7 +153,8 @@ krakenWithWeakSelf = nil
 */
 print("\n")
 
-/* Delegate example
+/*:
+ ##: Example: Delegate Retain Cycle
  GodzillaWithCycle has a retain cycle in the onRoar() delegate assigned in the init.
  */
  
@@ -177,14 +178,18 @@ class GodzillaWithCycle {
 
 var godzillaWithCycle: GodzillaWithCycle? = GodzillaWithCycle("BobzillaWithCycle")
 godzillaWithCycle = nil
-/* #### Output:
+
+//: #### Output:
+/*
 Note that the deinit doesn't get called due to the retain cycle:
+ 
 init: GodzillaWithCycle BobzillaWithCycle
  */
 
 
 print("\n")
-/* This can be fixed by either having the captured self be weak or unowned. In this case the captured self will never outlive the class itself so we can use unowned instead of weak.
+/*: #### The Fix:
+ This can be fixed by either having the captured self be weak or unowned. In this case the captured self will never outlive the class itself so we can use unowned instead of weak.
  */
 
 class GodzillaWithUnowned {
@@ -208,7 +213,8 @@ class GodzillaWithUnowned {
 var godzillaWithUnowned: GodzillaWithUnowned? = GodzillaWithUnowned("BobzillaWithUnowned")
 godzillaWithUnowned = nil
 
-/* ####Output:
+//: #### †Output:
+/*
  init: GodzillaWithUnowned BobzillaWithUnowned
  deinit: GodzillaWithUnowned BobzillaWithUnowned
  */

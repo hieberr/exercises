@@ -2,15 +2,19 @@
 
 import Foundation
 
-/* # SimpleFactory
+
+/*:
+ # ObjectAdapter Design pattern
  ## Objective:
- Implement the abstract factory design pattern.
+ Implement ObjectAdapter
  
- ### Definition:
+#### Definition:
  - Allows the interface of an existing class to be used by another interface.
  - Is often used to make existing classes work with others without havint to modify their source code.
  
- #### solves problems like:
+![UML](adapter-pattern.png)
+ 
+ #### Solves problems like:
  - How can a class be reused that does not have an interface that a client requires?
  - How can classes that have incompatible interfaces work together?
  - How can an alternative interface be provided for a class?
@@ -22,15 +26,19 @@ import Foundation
  - Adapter makes things work after they're designed; Bridge makes them work before they are.
  - Bridge is designed up-front to let the abstraction and the implementation vary independently.  Adapter is retrofitted to make unrelated classes work together.
  
+ #### Object Adapter vs Class Adapter
+ - The Class adapter uses inheritence to wrap a class instead of composition. The object Adapter / composition method is generally prefered because:
+    * composition is generally prefered over inheritence. (better encapsulation, less complex, easier to test, requires well defined interfaces)
+    * Class Adapter method often requires multiple inheritence which is not possible in some languages (C#, Java, Swift)
+ 
  ####  Conventions
  - Name the adapter "ClassName"To"Inteface"Adapter e.g. DAOToProviderAdapter.
  - Adapter should have a constructor which takes an adapteee class variable as a parameter. This paramater is stored by the adapter instance so that it can access any data/functionality in order to obtain the desired output.
  
  #### Resources
- */
 
-/*Example:
-In this example a client has an existing RectangleArea instance but needs a SquareArea instance to do the calculation.
+ ## Example:
+ In this example a client has an existing RectangleArea instance but needs a SquareArea instance to do the calculation.
  So we create an adapter class which implements the SquareArea protocol.
  */
 class RectangleArea {
@@ -68,7 +76,7 @@ class Client {
 var client = Client(length: 5)
 
 
-//#### Output
+//: #### Output
 //Area: 25
 
 //: [Next](@next)

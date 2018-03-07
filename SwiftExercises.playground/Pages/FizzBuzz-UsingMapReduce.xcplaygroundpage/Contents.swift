@@ -1,9 +1,10 @@
 //: [Previous](@previous)
 
 import Foundation
-/* # FizzBuzz
- ## Objective
- My goal here is to implement FizzBuzz using as few statements as possible.
+/*:
+ # FizzBuzz
+ #### Objective
+ My goal here is to implement FizzBuzz using as few statements as possible. Since you can use Array(1...100) to generate the initial array. I thought you could implement fizzBuzz using a map to calculate each element, and then a reduce to combine the strings together.
 */
 
 print(Array(1...100).map({

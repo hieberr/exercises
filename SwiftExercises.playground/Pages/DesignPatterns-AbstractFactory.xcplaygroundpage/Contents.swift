@@ -1,34 +1,38 @@
 //: [Previous](@previous)
 import Foundation
-/* # SimpleFactory
+/*:
+ # SimpleFactory
  ## Objective:
  Implement the abstract factory design pattern.
 
- ### Definition:
-    - Abstract Factory offers the interface for creating a family of related objects, without explicitly specifying their classes.
-    - Abstract factories are usually implemented using a set of factory methods.
+ #### Definition:
+- Abstract Factory offers the interface for creating a family of related objects, without explicitly specifying their classes.
+- Abstract factories are usually implemented using a set of factory methods.
  
- #### difference from Factory Method:
-    - The main difference between a "factory method" and an "abstract factory" is that the factory method is a single method, and an abstract factory is an object. Because the factory method is just a method, it can be overridden in a subclass.
-    - The abstract factory pattern uses composition to delegate responsibility of creating object to another class while factory method pattern uses inheritance and relies on a derived class or sub class to create object.
- 
+ ![UML](AbstractFactoryUml.jpg)
+
  #### When to use this pattern:
-    - When you need to create families of products or you want to provide a library of products without exposing implementation details.
-    - From the GOF:
-        “a system should be configured with one of multiple families of products”
+- When you need to create families of products or you want to provide a library of products without exposing implementation details.
+- From the GOF:
+    “a system should be configured with one of multiple families of products”
  
-        “you want to provide a class library of products, and you want to reveal just their interfaces, not their implementations”
+    “you want to provide a class library of products, and you want to reveal just their interfaces, not their implementations”
  
  #### When not to use this pattern
-    - Use a simpler factory pattern if you can. e.g. If you only need several types of factory: use factory method. If you only need a single concrete factory: use a static factory.
-    - Don't create an abstract factory if you think you might need one later.  It's usually easy to refactor later than do the extra work up front and not need it.
+- Use a simpler factory pattern if you can. e.g. If you only need several types of factory: use factory method. If you only need a single concrete factory: use a static factory.
+- Don't create an abstract factory if you think you might need one later.  It's usually easy to refactor later than do the extra work up front and not need it.
 
+ 
+ #### Difference from Factory Method:
+- The main difference between a "factory method" and an "abstract factory" is that the factory method is a single method, and an abstract factory is an object. Because the factory method is just a method, it can be overridden in a subclass.
+- The abstract factory pattern uses composition to delegate responsibility of creating object to another class while factory method pattern uses inheritance and relies on a derived class or sub class to create object.
+ 
  #### Resources
-    - good information on the different factory patterns: http://coding-geek.com/design-pattern-factory-patterns/
+- good information on the different factory patterns: http://coding-geek.com/design-pattern-factory-patterns/
+ 
+ ## Example
+ This example defines a layout factory for user interface elements. The example includes two factories that build UiElements that look/behave differently (in theory).
  */
-
-// ------------------------------------
-// This example defines a layout factory for user interface elements. The example includes two factories that build UiElements that look/behave differently (in theory).  
 
 /* The UiElements */
 public protocol UixButton {
@@ -134,8 +138,10 @@ public class FlatUiFactory: UiElementFactory {
     }
 }
 
-/* ## Usage */
-// In this example we create a metalUi with a window and a button, destroy it, and then create a flat ui window and button.
+/*:
+ #### Usage
+  In this example we create a metalUi with a window and a button, destroy it, and then create a flat ui window and button.
+ */
 var uiFactory: UiElementFactory = MetalUiFactory(configurationParamaters: "metal paramaters")
 
 var button: UixButton = uiFactory.getButton()
@@ -154,7 +160,8 @@ button.display()
 window.display()
 uiFactory.destroyUi()
 
-/* ## Output
+//: #### Output
+ /*
  Metal Button displayed. Metal Config: metal paramaters
  Metal Window displayed. Metal Config: metal paramaters
  Destroying all MetalUi elements

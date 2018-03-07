@@ -1,8 +1,19 @@
 //: [Previous](@previous)
 
-/* # Singleton
- ## Objective
+/*:
+ # Singleton
+ #### Objective
 Implement a threadsafe Singleton in Swift. It turns out this is easy since static members are initialized atomically in Swift.
+ 
+ #### Definition
+ A singleton provides ONLY a single instance of the class which is globally accessible.
+ 
+ ![UML](SingletonUml.png)
+ 
+ #### When to use
+ - When you only need a single instance of a class.
+ - When you need centralized management of internal or external resources and you need a global point of access.
+ 
 */
 final class Singleton {
     // In Swift 'static' (class) memebers are initized lazily, and with dispatch_once so that it is thread safe.
@@ -16,10 +27,10 @@ final class Singleton {
     }
 }
 
-// ## Usage:
+//: #### Usage:
 Singleton.instance.doSomething()
 
-// ## Output:
+//: #### Output:
 // Doing something...
 
 //: [Next](@next)
