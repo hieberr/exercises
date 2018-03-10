@@ -1,7 +1,6 @@
 //: [Previous](@previous)
 
 import Foundation
-(
 /*:
  # ObjectAdapter Design pattern
  ## Objective:
