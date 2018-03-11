@@ -2,6 +2,9 @@
 I try to do daily, or nearly daily programming exercises and demos to improve my skills. The more complex demos go into the Swift-Sandbox repository. The simpler exercises go here. I try to keep the exercises to a single file, with comments, explanation and sample output. Most of these are XCode playgrounds.
 
 ## Exercises
+
+[DesignPattern-Facade](https://github.com/hieberr/exercises/blob/master/SwiftExercises.playground/Pages/DesignPatterns-Facade.xcplaygroundpage/Contents.swift)
+
 [DesignPattern-Bridge](https://github.com/hieberr/exercises/blob/master/SwiftExercises.playground/Pages/DesignPatterns-Bridge.xcplaygroundpage/Contents.swift)
 
 [DesignPattern-Adapter](https://github.com/hieberr/exercises/blob/master/SwiftExercises.playground/Pages/DesignPatterns-Adapter.xcplaygroundpage/Contents.swift)

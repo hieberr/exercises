@@ -18,26 +18,89 @@ import Foundation
  - The abstractions and implementations of a subsystem are tightly coupled.
  
  
- #### Adapter vs decorator vs facade vs bridge
- - An adapter can be used when the wrapper must respect a particular interface. Converts one interface into another so that it matches what the client is expecting.
- - A decorator makes it possible to add or alter behavior of an interface at run-time.
- - A facade is used when an easier or simpler interface to an underlying object is desired.  Use a facade to simpliy an interface.
- - Adapter makes things work after they're designed; Bridge makes them work before they are.
- - Bridge is designed up-front to let the abstraction and the implementation vary independently.  Adapter is retrofitted to make unrelated classes work together.
- 
- 
- ####  Conventions
-
- 
  #### Resources
  
  ## Example:
-
+ This example is probably overly simple, but imagine a highly configurable graphics system which has windows, devices, and graphics contexts.  A client might only want to draw a few simple shapes and maybe change the graphics context. The ShapeMaker facade exposes the shapes needed, and uses the underlying system to make it happen.
+ 
+ A better example is the Java JOptionPane:
+ 
+ ![UML](FacadeExampleJOptionPane.jpg)
  */
 
+protocol Shape {
+    func draw(context: GraphicsContext)
+}
+
+class GraphicsContext {
+    private var name : String
+    
+    init(name: String) {
+        self.name = name
+    }
+    
+    func GetName() -> String {
+        return name
+    }
+    // ...more members and complicated stuff that needs interacts with other systems and components.
+}
+
+class Circle: Shape {
+    public func draw(context: GraphicsContext) {
+        print("Drawing a Circle in \(context.GetName())")
+    }
+    // ...more members and complicated stuff that needs interacts with other systems and components.
+}
+class Rectangle: Shape {
+    var length, width: Float
+    
+    init(length: Float, width: Float) {
+        self.length = length; self.width = width
+    }
+    public func draw(context: GraphicsContext) {
+        print("Drawing a Rectangle[\(length),\(width)] in \(context.GetName())")
+    }
+    // ...more members and complicated stuff that needs interacts with other systems and components.
+}
+
+// Our facade: ShapeMaker makes it simple for a client draw a shape without having to set things up
+class ShapeMaker {
+    var context: GraphicsContext = GraphicsContext(name: "Default")
+    private var circleBrush: Circle = Circle()
+    private var squareBrush: Rectangle = Rectangle(length: 10, width: 10)
+    private var rectangleBrush: Rectangle = Rectangle(length: 3, width: 8)
+
+    func SetContext(context: GraphicsContext) {
+        //...initialize the new context, destruct the old context, and maybe do some complex stuff.
+        self.context = context
+    }
+    
+    func drawCircle() {
+        circleBrush.draw(context: context)
+    }
+    
+    func drawRectangle() {
+        rectangleBrush.draw(context: context)
+    }
+    
+    func drawSquare() {
+        squareBrush.draw(context: context)
+    }
+}
+
+//: #### Usage
+
+let shapeMaker = ShapeMaker()
+
+shapeMaker.drawCircle()
+shapeMaker.drawSquare()
+shapeMaker.drawRectangle()
 
 //: #### Output
-//Area: 25
-
+/*
+Drawing a Circle in Default
+Drawing a Rectangle[10.0,10.0] in Default
+Drawing a Rectangle[3.0,8.0] in Default
+*/
 //: [Next](@next)
 

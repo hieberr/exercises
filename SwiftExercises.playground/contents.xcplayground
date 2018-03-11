@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <playground version='6.0' target-platform='ios' display-mode='raw'>
     <pages>
+        <page name='DesignPatterns-Facade'/>
         <page name='DesignPatterns-Bridge'/>
         <page name='DesignPatterns-Adapter'/>
         <page name='DesignPatterns-AbstractFactory'/>
@@ -10,6 +11,5 @@
         <page name='DesignPatterns-Singleton'/>
         <page name='FizzBuzz-UsingMapReduce'/>
         <page name='RetainCycles'/>
-        <page name='DesignPatterns-Facade'/>
     </pages>
 </playground>
