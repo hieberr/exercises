@@ -10,6 +10,7 @@
         <page name='DesignPatterns-SimpleFactory'/>
         <page name='DesignPatterns-Prototype'/>
         <page name='DesignPatterns-Singleton'/>
+        <page name='Algorithms-Sorting'/>
         <page name='FizzBuzz-UsingMapReduce'/>
         <page name='RetainCycles'/>
     </pages>
