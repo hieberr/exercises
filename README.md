@@ -3,6 +3,8 @@ I try to do daily, or nearly daily programming exercises and demos to improve my
 
 ## Exercises
 
+[DesignPattern-Decorator](https://github.com/hieberr/exercises/blob/master/SwiftExercises.playground/Pages/DesignPatterns-Decorator.xcplaygroundpage/Contents.swift)
+
 [DesignPattern-Builder](https://github.com/hieberr/exercises/blob/master/SwiftExercises.playground/Pages/DesignPatterns-Builder.xcplaygroundpage/Contents.swift)
 
 [DesignPattern-Facade](https://github.com/hieberr/exercises/blob/master/SwiftExercises.playground/Pages/DesignPatterns-Facade.xcplaygroundpage/Contents.swift)
@@ -26,3 +28,5 @@ I try to do daily, or nearly daily programming exercises and demos to improve my
 [RetainCycles](https://github.com/hieberr/exercises/blob/master/SwiftExercises.playground/Pages/RetainCycles.xcplaygroundpage/Contents.swift)
 
 [FizzBuzz](https://github.com/hieberr/exercises/blob/master/SwiftExercises.playground/Pages/FizzBuzz-UsingMapReduce.xcplaygroundpage/Contents.swift)
+
+
