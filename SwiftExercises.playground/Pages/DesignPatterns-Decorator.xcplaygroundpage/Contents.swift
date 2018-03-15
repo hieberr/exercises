@@ -17,8 +17,7 @@ The decorator pattern adds or alters behavior of a class dynamically at run time
  
  #### Decorator vs Chain of Responsibility Pattern
  The Decorator pattern is structurally nearly identical to the Chain of Responsibility. The difference is that in a Chain of Responsibility only ONE class handles the request. In the decorator the request gets passed along to potentially many other decorators.
- 
- #### Builder Pattern vs Abstract Factory
+
 
  ## Example:
 The following example adds decorators to add scroll bars to a window. You could also achieve this by making a "scrollbarWindow" subclass but then you run into problems when you want to add other window types, say a window with a border. Using decorators you simply add a decorator for horizontal scrollbars, and one for vertical scroll bars, and another for borders.
