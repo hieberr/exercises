@@ -29,7 +29,6 @@ import Foundation
 
  #### Implementation issues
  
- ##### 1. Limited Number of Resources in Pool
  - If a resource is limited the pool can throw an exception or return a null value until a resource is availalable.
  - If a resource fails to be returned (due to limitation or some other error) the client should be notified somehow.
  - Syncronization: In a multithreading environment the methods that are used by different threads should be synchronized.  There are only three methods in the ResourcePool object that have to be syncronized:
@@ -43,7 +42,59 @@ import Foundation
 
  ![ExampleUml](ObjectPoolDatabaseExampleUml.png)
  */
+class ConnectionImpl {
+    var id: String
+    init(id: String) {
+        self.id = id
+    }
+}
 
+class ConnectionPool {
+    private var connectionImpls: Array<ConnectionImpl>
+    private var connectionImplsInUse = Array<ConnectionImpl>()
+    
+    private init() {
+        connectionImpls = Array<ConnectionImpl>()
+        for i in 1...4 {
+            connectionImpls.append(ConnectionImpl(id: String(i)))
+        }
+    }
+    
+    static var _instance: ConnectionPool? = nil
+    static var instance: ConnectionPool {
+        get {
+            if _instance == nil {
+                _instance = ConnectionPool()
+            }
+            return _instance!
+        }
+    }
+    
+    // Returns the connectionImpl or nil if none were available.
+    func acquireConnectionImpl() -> ConnectionImpl? {
+        if let connection = connectionImpls.popLast() {
+            connectionImplsInUse.append(connection)
+            return connection
+        }
+        return nil
+    }
+    
+    func releaseConnectionImpl(reusable: ConnectionImpl) {
+        var foundIndex: Int? = nil
+        
+        for i in 0...(connectionImplsInUse.count - 1) {
+            let current = connectionImplsInUse[i]
+            if current.id == reusable.id {
+                foundIndex = i
+                connectionImpls.append(current)
+                break
+            }
+        }
+        if foundIndex != nil {
+            connectionImplsInUse.remove(at: foundIndex!)
+        }
+    }
+}
 
 //: #### Usage
 
