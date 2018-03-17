@@ -55,12 +55,12 @@ class ConnectionPool {
     
     private init() {
         connectionImpls = Array<ConnectionImpl>()
-        for i in 1...4 {
+        for i in 0...3 {
             connectionImpls.append(ConnectionImpl(id: String(i)))
         }
     }
     
-    static var _instance: ConnectionPool? = nil
+    static private var _instance: ConnectionPool? = nil
     static var instance: ConnectionPool {
         get {
             if _instance == nil {
@@ -97,9 +97,40 @@ class ConnectionPool {
 }
 
 //: #### Usage
+let pool = ConnectionPool.instance
 
+var c0 = pool.acquireConnectionImpl()
+print("c0: \(c0!.id)")
+
+var c1 = pool.acquireConnectionImpl()
+print("c1: \(c1!.id)")
+
+var c2 = pool.acquireConnectionImpl()
+print("c2: \(c2!.id)")
+
+var c3 = pool.acquireConnectionImpl()
+print("c3: \(c3!.id)")
+
+// This one exceeds the pool size and so returns nil
+var c4 = pool.acquireConnectionImpl()
+print("c4: \(c4)")
+
+// release a connection
+pool.releaseConnectionImpl(reusable: c1!)
+c1 = nil
+
+// now there is a free connection for c4
+c4 = pool.acquireConnectionImpl()
+print("c4: \(c4!.id)")
 //: #### Output
 /*
+ c0: 3
+ c1: 2
+ c2: 1
+ c3: 0
+ c4: nil
+ c4: 2
+
  
  */
 //: [Next](@next)
