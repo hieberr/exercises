@@ -3,6 +3,10 @@ I try to do daily, or nearly daily programming exercises and demos to improve my
 
 ## Exercises
 
+[DesignPattern-Flyweight](https://github.com/hieberr/exercises/blob/master/SwiftExercises.playground/Pages/DesignPatterns-Flyweight.xcplaygroundpage/Contents.swift)
+
+[DesignPattern-ObjectPool](https://github.com/hieberr/exercises/blob/master/SwiftExercises.playground/Pages/DesignPatterns-ObjectPool.xcplaygroundpage/Contents.swift)
+
 [DesignPattern-Decorator](https://github.com/hieberr/exercises/blob/master/SwiftExercises.playground/Pages/DesignPatterns-Decorator.xcplaygroundpage/Contents.swift)
 
 [DesignPattern-Builder](https://github.com/hieberr/exercises/blob/master/SwiftExercises.playground/Pages/DesignPatterns-Builder.xcplaygroundpage/Contents.swift)
