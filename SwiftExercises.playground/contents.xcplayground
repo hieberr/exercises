@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<playground version='6.0' target-platform='ios' display-mode='raw'>
+<playground version='6.0' target-platform='ios' display-mode='rendered'>
     <pages>
-        <page name='DesignPatterns-FlyweightPattern'/>
+        <page name='DesignPatterns-Flyweight'/>
         <page name='DesignPatterns-ObjectPool'/>
         <page name='DesignPatterns-Decorator'/>
         <page name='DesignPatterns-Builder'/>
@@ -16,5 +16,7 @@
         <page name='Algorithms-Sorting'/>
         <page name='FizzBuzz-UsingMapReduce'/>
         <page name='RetainCycles'/>
+        <page name='Structs'/>
+        <page name='Enums'/>
     </pages>
 </playground>
