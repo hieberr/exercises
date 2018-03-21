@@ -2,6 +2,33 @@
 
 import Foundation
 
-var str = "Hello, playground"
+/*:
+ # Design Pattern (Surrogate)
+ ## Objective:
+ Implement the
+ 
+ #### Definition:
+ ![Uml]()
+ 
+ #### Specific Problems and Implementations
+ 
+ ## Example:
+ */
 
+
+//: #### Usage
+
+
+
+//: #### Output
+/*
+ 
+ */
 //: [Next](@next)
+
+
+
+
+
+
+

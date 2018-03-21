@@ -3,6 +3,8 @@ I try to do daily, or nearly daily programming exercises and demos to improve my
 
 ## Exercises
 
+[DesignPattern-TemplateMethod](https://github.com/hieberr/exercises/blob/master/SwiftExercises.playground/Pages/DesignPatterns-TemplateMethod.xcplaygroundpage/Contents.swift)
+
 [DesignPattern-Proxy](https://github.com/hieberr/exercises/blob/master/SwiftExercises.playground/Pages/DesignPatterns-Proxy.xcplaygroundpage/Contents.swift)
 
 [DesignPattern-Flyweight](https://github.com/hieberr/exercises/blob/master/SwiftExercises.playground/Pages/DesignPatterns-Flyweight.xcplaygroundpage/Contents.swift)
