@@ -3,7 +3,7 @@
 import Foundation
 
 /*:
- # Visitor Design Pattern (Surrogate)
+ # Visitor Design Pattern 
  ## Objective:
  Implement the Visitor Pattern
  

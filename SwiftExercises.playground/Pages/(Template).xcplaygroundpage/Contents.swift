@@ -3,7 +3,7 @@
 import Foundation
 
 /*:
- # Design Pattern (Surrogate)
+ # Design Pattern
  ## Objective:
  Implement the
  
