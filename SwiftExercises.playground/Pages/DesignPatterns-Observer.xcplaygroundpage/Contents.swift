@@ -10,7 +10,7 @@ import Foundation
  #### Definition:
  ![Uml](ObserverUml.jpg)
  
- The observer pattern is a software design pattern in which an object, called the subject, maintains a list of its dependents, called observers, and notifies them automatically of any state changes, usually by calling one of their methods.
+ The observer pattern is a software design pattern in which an object, called the subject, maintains a list of its dependents, called observers, and notifies them automatically of any state changes, usually by1, calling one of their methods.
  
  #### Specific Problems and Implementations
  - Memory leaks.  Listeners must explicietly un-register themselves from the subject. This can cause retain cycles. In Swift, the listeners should maintain weak references to the subject.
