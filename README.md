@@ -3,7 +3,7 @@ I try to do daily, or nearly daily programming exercises and demos to improve my
 
 ## Exercises
 
-[DesignPattern-Composite (https://github.com/hieberr/exercises/blob/master/SwiftExercises.playground/Pages/DesignPatterns-Composite.xcplaygroundpage/Contents.swift)
+[DesignPattern-Composite](https://github.com/hieberr/exercises/blob/master/SwiftExercises.playground/Pages/DesignPatterns-Composite.xcplaygroundpage/Contents.swift)
 
 [DesignPattern-Mediator](https://github.com/hieberr/exercises/blob/master/SwiftExercises.playground/Pages/DesignPatterns-Mediator.xcplaygroundpage/Contents.swift)
 
