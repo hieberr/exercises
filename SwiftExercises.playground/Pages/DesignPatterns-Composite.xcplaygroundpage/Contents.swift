@@ -31,16 +31,25 @@ import Foundation
  */
 public protocol Employee {
     func isEqualTo(_ other: Employee) -> Bool
-    func add(employee: Employee)
-    func remove(employee: Employee)
+    mutating func add(employee: Employee)
+    mutating func remove(employee: Employee)
     func getChild(index: Int) -> Employee?
     func getName() -> String
     func getSalary() -> Double
     func printDescription(tabs: String)
 }
 
-public class Manager : Employee {
-    private var name: String
+public extension Employee where Self : Equatable {
+    func isEqualTo(_ other: Employee) -> Bool {
+        if let _other = other as? Self {
+            return self == _other
+        }
+        return false
+    }
+}
+
+public struct Manager : Employee, Equatable {
+    private let name: String
     private var salary: Double
     private var employees: Array<Employee> = Array<Employee>()
     
@@ -49,15 +58,15 @@ public class Manager : Employee {
         self.salary = salary
     }
     
-    public func isEqualTo(_ other: Employee) -> Bool {
-        return name == other.getName()
+    public static func ==(lhs: Manager, rhs: Manager) -> Bool {
+        return lhs.name == rhs.name
     }
     
-    public func add(employee: Employee) {
+    public mutating func add(employee: Employee) {
         employees.append(employee)
     }
     
-    public func remove(employee: Employee) {
+    public mutating func remove(employee: Employee) {
         if let index = employees.index( where: {$0.isEqualTo(employee) }) {
             employees.remove(at: index)
         }
@@ -90,8 +99,8 @@ public class Manager : Employee {
 }
 
 // Developer is a leaf node, so it doesn't keep track of any employees.
-public class Developer : Employee {
-    private var name: String
+public class Developer : Employee, Equatable {
+    private let name: String
     private var salary: Double
     
     public init(name: String, salary: Double){
@@ -99,8 +108,8 @@ public class Developer : Employee {
         self.salary = salary
     }
     
-    public func isEqualTo(_ other: Employee) -> Bool {
-        return name == other.getName()
+    public static func ==(lhs: Developer, rhs: Developer) -> Bool {
+        return lhs.name == rhs.name
     }
     
     public func add(employee: Employee) {
@@ -129,14 +138,14 @@ public class Developer : Employee {
 }
 
 //: #### Usage
-let manager1 : Employee  = Manager(name: "Bill", salary: 200000)
+var manager1 : Employee  = Manager(name: "Bill", salary: 200000)
 manager1.add(employee: Developer(name: "John", salary: 100000))
 manager1.add(employee: Developer(name: "David", salary: 150000))
 
-let manager2 : Employee  = Manager(name: "Bob", salary: 200000)
+var manager2 : Employee  = Manager(name: "Bob", salary: 200000)
 manager2.add(employee: Developer(name: "Frank", salary: 150000))
 
-let generalManager : Employee = Manager(name: "Rich", salary: 200000)
+var generalManager : Employee = Manager(name: "Rich", salary: 200000)
 generalManager.add(employee: manager1)
 generalManager.add(employee: manager2)
 
