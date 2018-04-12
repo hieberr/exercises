@@ -27,5 +27,6 @@
         <page name='RetainCycles'/>
         <page name='Enums'/>
         <page name='(Template)'/>
+        <page name='BinaryTree'/>
     </pages>
 </playground>

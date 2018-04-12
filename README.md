@@ -51,6 +51,6 @@ I try to do daily, or nearly daily programming exercises and demos to improve my
 
 [FizzBuzz](https://github.com/hieberr/exercises/blob/master/SwiftExercises.playground/Pages/FizzBuzz-UsingMapReduce.xcplaygroundpage/Contents.swift)
 
-
+[BinaryTree](https://github.com/hieberr/exercises/blob/master/SwiftExercises.playground/Pages/BinaryTree.xcplaygroundpage/Contents.swift)
 
 
