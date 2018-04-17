@@ -170,11 +170,11 @@ class Node : Equatable {
     public func traversePostOrder() -> [Node] {
         var result: [Node] = []
         if let r = right {
-            result.append(contentsOf: r.traverseInOrder())
+            result.append(contentsOf: r.traversePostOrder())
         }
         result.append(self)
         if let l = left {
-            result.append(contentsOf: l.traverseInOrder())
+            result.append(contentsOf: l.traversePostOrder())
         }
         return result;
     }
@@ -198,8 +198,8 @@ print(" ")
 root.search(value: "Bob")?.remove()
 root.printNamesInOrder()
 
-print(root.traverseInOrder().map({$0.name}).reduce("", {$0 + "," + $1}))
-print(root.traversePostOrder().map({$0.name}).reduce("", {$0 + "," + $1}))
+print(root.traverseInOrder().map({$0.name}).joined(separator: ", "))
+print(root.traversePostOrder().map({$0.name}).joined(separator: ", "))
 
 //: #### Output
 /*
@@ -215,8 +215,7 @@ print(root.traversePostOrder().map({$0.name}).reduce("", {$0 + "," + $1}))
  Frank
  Ryan
  Zach
- ,Alice,Barny,Frank,Ryan,Zach
- ,Zach,Ryan,Alice,Barny,Frank
+ Alice, Barny, Frank, Ryan, Zach
 
  */
 //: [Next](@next)
