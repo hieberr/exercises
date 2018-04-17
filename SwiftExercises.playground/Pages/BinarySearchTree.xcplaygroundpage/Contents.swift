@@ -154,6 +154,30 @@ class Node : Equatable {
             r.printNamesInOrder()
         }
     }
+    
+    public func traverseInOrder() -> [Node] {
+        var result: [Node] = []
+        if let l = left {
+            result.append(contentsOf: l.traverseInOrder())
+        }
+        result.append(self)
+        if let r = right {
+            result.append(contentsOf: r.traverseInOrder())
+        }
+        return result;
+    }
+    
+    public func traversePostOrder() -> [Node] {
+        var result: [Node] = []
+        if let r = right {
+            result.append(contentsOf: r.traverseInOrder())
+        }
+        result.append(self)
+        if let l = left {
+            result.append(contentsOf: l.traverseInOrder())
+        }
+        return result;
+    }
 }
 
 //: #### Usage
@@ -174,6 +198,9 @@ print(" ")
 root.search(value: "Bob")?.remove()
 root.printNamesInOrder()
 
+print(root.traverseInOrder().map({$0.name}).reduce("", {$0 + "," + $1}))
+print(root.traversePostOrder().map({$0.name}).reduce("", {$0 + "," + $1}))
+
 //: #### Output
 /*
  Alice
@@ -188,7 +215,8 @@ root.printNamesInOrder()
  Frank
  Ryan
  Zach
-
+ ,Alice,Barny,Frank,Ryan,Zach
+ ,Zach,Ryan,Alice,Barny,Frank
 
  */
 //: [Next](@next)
