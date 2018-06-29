@@ -30,5 +30,6 @@
         <page name='Enums'/>
         <page name='(Template)'/>
         <page name='BinarySearchTree'/>
+        <page name='Exceptions'/>
     </pages>
 </playground>

@@ -56,4 +56,5 @@ I try to do daily, or nearly daily programming exercises and demos to improve my
 
 [BinarySearchTree](https://github.com/hieberr/exercises/blob/master/SwiftExercises.playground/Pages/BinarySearchTree.xcplaygroundpage/Contents.swift)
 
+[Exceptions](https://github.com/hieberr/exercises/blob/master/SwiftExercises.playground/Pages/Exceptions.xcplaygroundpage/Contents.swift)
 
