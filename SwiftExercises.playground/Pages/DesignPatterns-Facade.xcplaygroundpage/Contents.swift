@@ -45,13 +45,13 @@ class GraphicsContext {
     // ...more members and complicated stuff that needs interacts with other systems and components.
 }
 
-class Circle: Shape {
+struct Circle: Shape {
     public func draw(context: GraphicsContext) {
         print("Drawing a Circle in \(context.GetName())")
     }
     // ...more members and complicated stuff that needs interacts with other systems and components.
 }
-class Rectangle: Shape {
+struct Rectangle: Shape {
     var length, width: Float
     
     init(length: Float, width: Float) {

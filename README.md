@@ -58,3 +58,5 @@ I try to do daily, or nearly daily programming exercises and demos to improve my
 
 [Exceptions](https://github.com/hieberr/exercises/blob/master/SwiftExercises.playground/Pages/Exceptions.xcplaygroundpage/Contents.swift)
 
+[MapFilterReduceFlatmap](https://github.com/hieberr/exercises/blob/master/SwiftExercises.playground/Pages/Exceptions.xcplaygroundpage/MapFilterReduceFlatmap.swift)
+

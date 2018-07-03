@@ -31,5 +31,6 @@
         <page name='(Template)'/>
         <page name='BinarySearchTree'/>
         <page name='Exceptions'/>
+        <page name='MapFilterReduceFlatmap'/>
     </pages>
 </playground>
