@@ -114,10 +114,3 @@ game.PrintGameState()
  Beginning game at chapter: Bubble World-level: 1, score: 200
  */
 //: [Next](@next)
-
-
-
-
-
-
-
